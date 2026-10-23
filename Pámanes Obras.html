@@ -1,0 +1,458 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Pámanes Obras</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,500;0,6..96,700;1,6..96,500&family=Figtree:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: banda de mosaico veneciano como firma; panel de obras (lista + detalle) y una vista cliente tipo "link para el cliente". */
+:root{
+  --bg:#F2F6F6; --surface:#FFFFFF; --surface2:#E8F0F1; --ink:#0D2930; --muted:#587078; --line:#D3E0E2;
+  --accent:#0A7A8A; --accent-ink:#FFFFFF; --deep:#073F4B;
+  --t1:#0A7A8A; --t2:#1497A6; --t3:#5CC3CE; --t4:#0B5566; --t5:#A9DFE4;
+  --ok:#23845A; --ok-bg:#E2F3EA; --warn:#A86E05; --warn-bg:#FBF0D9; --bad:#B23A2E; --bad-bg:#F8E3E0;
+  --display:"Bodoni Moda", "Didot", Georgia, serif;
+  --body:"Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono:"IBM Plex Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --bg:#07161B; --surface:#0E2229; --surface2:#132C34; --ink:#E3EFF1; --muted:#8EA7AD; --line:#1F3B43;
+  --accent:#3CC0CE; --accent-ink:#04191E; --deep:#8ADCE4;
+  --t1:#2BA9B7; --t2:#3CC0CE; --t3:#7FD7E0; --t4:#14707F; --t5:#1E4F59;
+  --ok:#5FD39C; --ok-bg:#12372A; --warn:#F0B54A; --warn-bg:#3A2D10; --bad:#F2877B; --bad-bg:#3E1D1A;
+  color-scheme:dark; }}
+:root[data-theme="dark"]{
+  --bg:#07161B; --surface:#0E2229; --surface2:#132C34; --ink:#E3EFF1; --muted:#8EA7AD; --line:#1F3B43;
+  --accent:#3CC0CE; --accent-ink:#04191E; --deep:#8ADCE4;
+  --t1:#2BA9B7; --t2:#3CC0CE; --t3:#7FD7E0; --t4:#14707F; --t5:#1E4F59;
+  --ok:#5FD39C; --ok-bg:#12372A; --warn:#F0B54A; --warn-bg:#3A2D10; --bad:#F2877B; --bad-bg:#3E1D1A;
+  color-scheme:dark; }
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.55}
+.wrap{max-width:1120px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{text-wrap:balance;margin:0}
+h1,h2{font-family:var(--display);font-weight:500;letter-spacing:-.01em}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+.muted{color:var(--muted)}
+.mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
+button,select,input{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+/* Mosaico */
+.mosaic{display:grid;grid-template-columns:repeat(auto-fill,minmax(14px,1fr));gap:2px;height:32px;overflow:hidden}
+.mosaic span{display:block;height:14px;border-radius:2px}
+
+/* Hero */
+header.hero{padding-block:44px 28px}
+.hero-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:32px;align-items:end}
+.hero h1{font-size:clamp(34px,5.4vw,58px);line-height:1.05;margin-top:10px}
+.hero h1 em{font-style:italic;color:var(--accent)}
+.hero p.lead{font-size:17px;max-width:58ch;margin:16px 0 0}
+.hero-note{border-left:2px solid var(--accent);padding:4px 0 4px 16px;font-size:14px;color:var(--muted)}
+.hero-note b{color:var(--ink)}
+
+section{padding-block:28px}
+.sec-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:12px;margin-bottom:18px}
+.sec-head h2{font-size:clamp(26px,3.4vw,36px)}
+.badge-demo{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;background:var(--warn-bg);color:var(--warn);padding:4px 8px;border-radius:4px}
+
+/* Tabs */
+.tabs{display:inline-flex;background:var(--surface2);border-radius:999px;padding:4px;gap:4px;flex-wrap:wrap}
+.tabs button{border:0;background:transparent;padding:8px 16px;border-radius:999px;cursor:pointer;font-weight:600;font-size:14px;color:var(--muted)}
+.tabs button[aria-selected="true"]{background:var(--surface);color:var(--ink);box-shadow:0 1px 3px rgba(0,0,0,.12)}
+
+/* KPIs */
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:10px;overflow:hidden;margin-bottom:18px}
+.kpi{background:var(--surface);padding:14px 16px}
+.kpi .n{font-family:var(--display);font-size:34px;line-height:1.1}
+.kpi .l{font-size:13px;color:var(--muted)}
+.kpi.warn .n{color:var(--warn)} .kpi.bad .n{color:var(--bad)}
+
+.board{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:18px;align-items:start}
+.list{display:flex;flex-direction:column;gap:8px}
+.obra{display:grid;grid-template-columns:4px minmax(0,1fr) auto;gap:12px;align-items:center;text-align:left;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 14px 12px 0;cursor:pointer;width:100%}
+.obra:hover{border-color:var(--accent)}
+.obra[aria-current="true"]{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent)}
+.obra .stripe{align-self:stretch;border-radius:0 3px 3px 0}
+.obra .name{font-weight:700}
+.obra .sub{font-size:13px;color:var(--muted)}
+.bar{height:6px;background:var(--surface2);border-radius:99px;overflow:hidden;margin-top:8px}
+.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--t4),var(--t2));border-radius:99px}
+.pct{font-family:var(--mono);font-size:13px;text-align:right}
+.pill{display:inline-block;font-size:11.5px;font-weight:700;padding:2px 8px;border-radius:99px;white-space:nowrap}
+.pill.ok{background:var(--ok-bg);color:var(--ok)} .pill.warn{background:var(--warn-bg);color:var(--warn)} .pill.bad{background:var(--bad-bg);color:var(--bad)}
+
+.detail{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:20px;position:sticky;top:calc(env(safe-area-inset-top,0px) + 12px)}
+.detail h3{font-family:var(--display);font-size:24px;font-weight:500}
+.meta{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 18px;margin:14px 0;font-size:13.5px}
+.meta dt{color:var(--muted);font-size:12px}
+.meta dd{margin:0;font-weight:600}
+.alert{background:var(--bad-bg);color:var(--bad);border-radius:8px;padding:10px 12px;font-size:14px;margin:10px 0}
+.alert.warn{background:var(--warn-bg);color:var(--warn)}
+.stages{list-style:none;padding:0;margin:12px 0 0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px}
+.stages li{display:flex;gap:8px;align-items:center;font-size:13.5px;padding:6px 8px;border-radius:6px}
+.stages li .dot{width:18px;height:18px;border-radius:50%;flex:none;display:grid;place-items:center;font-size:11px;border:1.5px solid var(--line)}
+.stages li.done .dot{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.stages li.cur{background:var(--surface2);font-weight:700}
+.stages li.cur .dot{border-color:var(--accent);box-shadow:inset 0 0 0 4px var(--surface2);background:var(--accent)}
+.stages li.next{color:var(--muted)}
+.sub-h{font-size:12px;font-family:var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:18px 0 8px}
+.log{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px}
+.log li{font-size:14px;display:grid;grid-template-columns:86px minmax(0,1fr);gap:10px}
+.log .when{font-family:var(--mono);font-size:12px;color:var(--muted);padding-top:2px}
+.log .src{font-size:11.5px;color:var(--accent);font-weight:600}
+.pend{display:flex;flex-wrap:wrap;gap:6px}
+.pend span{font-size:13px;background:var(--surface2);padding:4px 10px;border-radius:6px}
+.ai-box{margin-top:16px;border:1px dashed var(--accent);border-radius:10px;padding:12px 14px;font-size:14px}
+.ai-box b{color:var(--accent)}
+
+/* Vista cliente */
+.client{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,380px);gap:28px;align-items:start}
+.client-explain p{max-width:56ch}
+.client-explain select{margin-top:10px;padding:8px 12px;border:1px solid var(--line);border-radius:8px;background:var(--surface);max-width:100%}
+.phone{background:var(--surface);border:1px solid var(--line);border-radius:28px;padding:10px;box-shadow:0 18px 40px -20px rgba(7,63,75,.35)}
+.phone-in{border-radius:20px;overflow:hidden;background:var(--bg)}
+.ph-top{background:var(--deep);color:var(--bg);padding:20px 18px 18px}
+:root[data-theme="dark"] .ph-top{color:var(--accent-ink)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .ph-top{color:var(--accent-ink)}}
+.ph-top .brand{font-family:var(--display);font-size:18px;font-style:italic}
+.ph-top .hi{font-size:13px;opacity:.8;margin-top:10px}
+.ph-top .big{font-family:var(--display);font-size:26px;line-height:1.15;margin-top:2px}
+.ring{display:flex;gap:14px;align-items:center;margin-top:14px}
+.ring svg{flex:none}
+.ph-body{padding:16px 18px 20px;display:flex;flex-direction:column;gap:14px}
+.ph-card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px;font-size:14px}
+.tl{list-style:none;margin:0;padding:0}
+.tl li{display:grid;grid-template-columns:20px minmax(0,1fr);gap:10px;font-size:13.5px;position:relative;padding-bottom:10px}
+.tl li::before{content:"";position:absolute;left:9px;top:18px;bottom:0;width:2px;background:var(--line)}
+.tl li:last-child::before{display:none}
+.tl .d{width:20px;height:20px;border-radius:50%;border:2px solid var(--line);background:var(--surface);z-index:1}
+.tl li.done .d{background:var(--accent);border-color:var(--accent)}
+.tl li.done::before{background:var(--accent)}
+.tl li.cur .d{border-color:var(--accent);box-shadow:0 0 0 4px var(--t5)}
+.tl li.cur{font-weight:700}
+.tl .here{font-size:11px;font-family:var(--mono);color:var(--accent);margin-left:6px}
+.tl li.next{color:var(--muted)}
+.gal{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.gal div{aspect-ratio:1;border-radius:8px;display:flex;align-items:flex-end;padding:5px;font-size:10px;color:#fff;font-family:var(--mono);max-width:100%}
+
+/* Calculadora */
+.calc{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:18px;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:20px}
+.fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.fields label{display:flex;flex-direction:column;gap:4px;font-size:13px;color:var(--muted)}
+.fields input,.fields select{padding:9px 10px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink);font-family:var(--mono);width:100%}
+.out{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;background:var(--line);border-radius:10px;overflow:hidden;border:1px solid var(--line)}
+.out div{background:var(--bg);padding:12px 14px}
+.out .v{font-family:var(--display);font-size:28px;line-height:1.1}
+.out .k{font-size:12.5px;color:var(--muted)}
+.fine{font-size:12.5px;color:var(--muted);margin-top:10px}
+
+/* Casos de uso */
+.uses{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.use{background:var(--surface);padding:18px}
+.use .area{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent)}
+.use h3{font-size:16.5px;margin:6px 0 6px}
+.use p{font-size:14px;margin:0;color:var(--muted)}
+.use .ex{margin-top:10px;font-size:13px;background:var(--surface2);border-radius:6px;padding:8px 10px;color:var(--ink);font-style:italic}
+
+/* CTA */
+.cta{background:var(--deep);color:var(--bg);border-radius:16px;padding:28px;display:grid;grid-template-columns:1.3fr 1fr;gap:24px;align-items:center}
+:root[data-theme="dark"] .cta{color:var(--accent-ink)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .cta{color:var(--accent-ink)}}
+.cta h2{font-size:clamp(26px,3.6vw,38px)}
+.cta ul{margin:12px 0 0;padding-left:18px;font-size:15px}
+.contact{display:flex;flex-direction:column;gap:10px}
+.contact .row{display:flex;justify-content:space-between;gap:10px;align-items:center;background:rgba(255,255,255,.1);border-radius:10px;padding:10px 14px;flex-wrap:wrap}
+.contact .row b{font-family:var(--mono);font-size:15px;user-select:all}
+.contact button{border:0;background:var(--bg);color:var(--deep);border-radius:6px;padding:5px 10px;font-weight:700;font-size:12.5px;cursor:pointer}
+footer{padding-block:28px 40px;font-size:12.5px;color:var(--muted)}
+
+@media (max-width:880px){
+  .hero-grid,.board,.client,.calc,.cta{grid-template-columns:1fr}
+  .uses{grid-template-columns:1fr 1fr}
+  .detail{position:static}
+}
+@media (max-width:560px){
+  .kpis{grid-template-columns:1fr 1fr}
+  .uses,.stages,.fields{grid-template-columns:1fr}
+  .meta{grid-template-columns:1fr 1fr}
+}
+@media (prefers-reduced-motion:no-preference){ .bar i{transition:width .6s ease} }
+</style>
+
+<div class="mosaic" id="mosaic" aria-hidden="true"></div>
+
+<header class="hero wrap">
+  <div class="hero-grid">
+    <div>
+      <div class="eyebrow">Claude para Pámanes Pools · Demo</div>
+      <h1>Cada alberca, <em>bajo control</em>, sin visitar cada obra todos los días.</h1>
+      <p class="lead">Un ejemplo de lo que Claude puede construir para tu operación: un tablero de obras para ti y una página para que cada cliente vea en qué etapa va su alberca.</p>
+    </div>
+    <div class="hero-note">Este tablero lo hizo <b>Claude</b> a partir de una conversación. En el curso aprendes a crear herramientas así con <b>tus obras reales</b>, sin programar.</div>
+  </div>
+</header>
+
+<main>
+<section class="wrap" id="tracker">
+  <div class="sec-head">
+    <div>
+      <div class="eyebrow">Ejemplo 1</div>
+      <h2>Seguimiento de obras</h2>
+    </div>
+    <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+      <span class="badge-demo">Datos de ejemplo</span>
+      <div class="tabs" role="tablist">
+        <button role="tab" id="tab-owner" aria-selected="true">Vista Pámanes</button>
+        <button role="tab" id="tab-client" aria-selected="false">Vista del cliente</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="view-owner">
+    <div class="kpis" id="kpis"></div>
+    <div class="board">
+      <div class="list" id="list"></div>
+      <aside class="detail" id="detail" aria-live="polite"></aside>
+    </div>
+  </div>
+
+  <div id="view-client" hidden>
+    <div class="client">
+      <div class="client-explain">
+        <h3 style="font-family:var(--display);font-size:26px;font-weight:500">Lo que ve tu cliente en su celular</h3>
+        <p class="muted">Cada cliente recibe un link privado de su obra. Ve la etapa actual, las fotos de la semana y la próxima fecha importante. Menos llamadas de "¿cómo va mi alberca?" y más confianza en el equipo.</p>
+        <p class="muted">El residente manda su reporte por WhatsApp o una nota de voz; Claude lo convierte en una actualización clara para el cliente y en la bitácora interna para ti.</p>
+        <label for="pick" class="eyebrow" style="display:block;margin-top:14px">Ver como cliente de</label>
+        <select id="pick"></select>
+      </div>
+      <div class="phone"><div class="phone-in" id="phone"></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="wrap" id="calc">
+  <div class="sec-head">
+    <div>
+      <div class="eyebrow">Ejemplo 2</div>
+      <h2>Calculadora de equipo de filtrado</h2>
+    </div>
+    <span class="badge-demo">Estimación ilustrativa</span>
+  </div>
+  <div class="calc">
+    <div>
+      <p class="muted" style="margin-top:0">Claude también arma herramientas rápidas para cotizar. Con medidas de la alberca estima volumen y el caudal que necesita la bomba según el tiempo de recirculación.</p>
+      <div class="fields">
+        <label for="c-l">Largo (m)<input id="c-l" type="number" min="1" step="0.1" value="10"></label>
+        <label for="c-w">Ancho (m)<input id="c-w" type="number" min="1" step="0.1" value="4"></label>
+        <label for="c-d1">Prof. mínima (m)<input id="c-d1" type="number" min="0.3" step="0.05" value="1.1"></label>
+        <label for="c-d2">Prof. máxima (m)<input id="c-d2" type="number" min="0.3" step="0.05" value="1.8"></label>
+        <label for="c-t">Recirculación<select id="c-t"><option value="6" selected>Cada 6 horas (residencial)</option><option value="8">Cada 8 horas</option><option value="4">Cada 4 horas (uso intenso)</option></select></label>
+        <label for="c-j">Jacuzzi integrado<select id="c-j"><option value="0">No</option><option value="4" selected>Sí, ~4 m³</option></select></label>
+      </div>
+    </div>
+    <div>
+      <div class="out">
+        <div><div class="v mono" id="o-vol">–</div><div class="k">Volumen total (m³)</div></div>
+        <div><div class="v mono" id="o-lts">–</div><div class="k">Litros</div></div>
+        <div><div class="v mono" id="o-m3h">–</div><div class="k">Caudal mínimo (m³/h)</div></div>
+        <div><div class="v mono" id="o-gpm">–</div><div class="k">Caudal mínimo (GPM)</div></div>
+      </div>
+      <p class="fine">Referencia para presupuestar. La selección final de bomba y filtro depende de la carga hidráulica, longitud de tubería y equipo adicional (cascadas, chorros, calentador), que define el ingeniero de Pámanes.</p>
+    </div>
+  </div>
+</section>
+
+<section class="wrap" id="usos">
+  <div class="sec-head">
+    <div>
+      <div class="eyebrow">Más allá del tablero</div>
+      <h2>Qué más puede hacer Claude en Pámanes Pools</h2>
+    </div>
+  </div>
+  <div class="uses" id="uses"></div>
+</section>
+
+<section class="wrap">
+  <div class="cta">
+    <div>
+      <div class="eyebrow" style="color:inherit;opacity:.75">DELFA BOS · Curso de Claude para empresas</div>
+      <h2 style="margin-top:8px">Que tu equipo construya estas herramientas con su propia información.</h2>
+      <ul>
+        <li>Casos prácticos con tus obras, cotizaciones y procesos</li>
+        <li>Para dirección, administración, ventas y residentes de obra</li>
+        <li>Sin necesidad de saber programar</li>
+      </ul>
+    </div>
+    <div class="contact">
+      <div style="font-weight:700">Lic. Argus Facio · DELFA BOS</div>
+      <div class="row"><span>WhatsApp</span><b id="wa">871 755 1429</b><button data-copy="wa">Copiar</button></div>
+      <div class="row"><span>Correo</span><b id="em">argus.facio@delfa.mx</b><button data-copy="em">Copiar</button></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="wrap">Demo preparada por DELFA BOS para Pámanes Pools. Obras, clientes, fechas y nombres son ficticios, solo para ilustrar.</footer>
+
+<script>
+(function(){
+// Mosaico veneciano
+const m=document.getElementById('mosaic'); const tones=['--t1','--t2','--t3','--t4','--t5','--t2','--t1'];
+let seed=7; const rnd=()=>{seed=(seed*9301+49297)%233280;return seed/233280};
+for(let i=0;i<320;i++){const s=document.createElement('span');s.style.background='var('+tones[Math.floor(rnd()*tones.length)]+')';m.appendChild(s)}
+
+const STAGES=['Diseño y permisos','Trazo y excavación','Plomería e hidráulica','Armado de acero','Concreto lanzado','Instalación eléctrica e iluminación','Impermeabilización y aplanados','Mosaico veneciano y acabados','Equipamiento y automatización','Llenado, arranque y entrega'];
+
+const OBRAS=[
+ {id:'o1',nombre:'Residencia Los Viñedos',cliente:'Fam. Garza Treviño',tipo:'Infinita 10 × 4 m + jacuzzi',residente:'Ing. Luis Ramírez',etapa:7,parcial:.4,inicio:'04 ago',entrega:'28 nov',estado:'ok',ultima:'Hoy 10:42',fotos:14,
+  alerta:null,
+  log:[{w:'Hoy 10:42',s:'Nota de voz del residente',t:'Se colocó 40% del mosaico veneciano en muro norte. Mañana sigue la escalinata.'},{w:'Ayer 17:10',s:'WhatsApp',t:'Llegaron 3 cajas de mosaico faltantes. Lote coincide con el anterior.'},{w:'17 oct',s:'Fotos',t:'Aplanado de jacuzzi terminado, curado 72 h.'}],
+  pend:['Lámparas LED RGB (2)','Boquillas de retorno'],
+  msg:'Ya estamos colocando el mosaico veneciano. Esta semana terminamos los muros y la escalinata.'},
+ {id:'o2',nombre:'Casa Campestre San Agustín',cliente:'Sr. Héctor Villarreal',tipo:'Rectangular 8 × 3.5 m',residente:'Arq. Diana Soto',etapa:3,parcial:.7,inicio:'22 sep',entrega:'15 dic',estado:'warn',ultima:'Ayer 18:05',fotos:9,
+  alerta:{k:'warn',t:'El acero llegó 3 días tarde. El colado de concreto lanzado se movió al lunes 27.'},
+  log:[{w:'Ayer 18:05',s:'WhatsApp',t:'Armado de piso al 70%. Falta revisión de traslapes antes del colado.'},{w:'19 oct',s:'Proveedor',t:'Entrega de varilla 3/8" confirmada para el día 20.'}],
+  pend:['Confirmar pipa de concreto lanzado','Visita de supervisión estructural'],
+  msg:'Estamos terminando el armado de acero. El colado del casco queda programado para el lunes 27.'},
+ {id:'o3',nombre:'Torre Moderna — Roof Garden',cliente:'Constructora PSC (ejemplo)',tipo:'Alberca en azotea 7 × 3 m, climatizada',residente:'Ing. Luis Ramírez',etapa:5,parcial:.2,inicio:'01 sep',entrega:'12 dic',estado:'bad',ultima:'Hace 3 días',fotos:4,
+  alerta:{k:'bad',t:'Sin reporte del residente en 3 días. La entrega del calentador sigue sin fecha.'},
+  log:[{w:'18 oct',s:'WhatsApp',t:'Se inició canalización eléctrica para iluminación subacuática.'},{w:'15 oct',s:'Fotos',t:'Concreto lanzado terminado, prueba de hermeticidad pendiente.'}],
+  pend:['Calentador / bomba de calor','Prueba de hermeticidad','Tablero de control'],
+  msg:'Estamos instalando la parte eléctrica y la iluminación. Te avisamos en cuanto esté la prueba de hermeticidad.'},
+ {id:'o4',nombre:'Residencia Las Villas',cliente:'Fam. Martínez Ruiz',tipo:'Forma libre 9 × 5 m + cascada',residente:'Arq. Diana Soto',etapa:1,parcial:.5,inicio:'13 oct',entrega:'30 ene',estado:'ok',ultima:'Hoy 09:15',fotos:6,
+  alerta:null,
+  log:[{w:'Hoy 09:15',s:'Nota de voz del residente',t:'Excavación al 50%. Suelo firme, sin roca. Retiro de tierra mañana.'}],
+  pend:['Camión de retiro de tierra'],
+  msg:'Arrancamos la excavación. El terreno salió firme, así que vamos en tiempo.'},
+ {id:'o5',nombre:'Quinta El Fresno',cliente:'Sra. Laura Díaz',tipo:'Alberca 6 × 3 m + jacuzzi',residente:'Ing. Marco Peña',etapa:9,parcial:.6,inicio:'10 jul',entrega:'25 oct',estado:'ok',ultima:'Hoy 12:30',fotos:22,
+  alerta:null,
+  log:[{w:'Hoy 12:30',s:'WhatsApp',t:'Llenado al 60%. Arranque de equipo y balanceo químico el jueves.'},{w:'19 oct',s:'Fotos',t:'Automatización configurada: luces, temperatura y filtrado desde la app.'}],
+  pend:['Capacitación de uso al cliente','Manual de mantenimiento'],
+  msg:'¡Ya estamos llenando tu alberca! El jueves arrancamos el equipo y te enseñamos a usar la app.'}
+];
+const pct=o=>Math.round(((o.etapa+o.parcial)/STAGES.length)*100);
+const LAB={ok:'En tiempo',warn:'En riesgo',bad:'Atención'};
+const COL={ok:'var(--ok)',warn:'var(--warn)',bad:'var(--bad)'};
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+// KPIs
+const k=document.getElementById('kpis');
+const riesgo=OBRAS.filter(o=>o.estado!=='ok').length;
+k.innerHTML=`<div class="kpi"><div class="n mono">${OBRAS.length}</div><div class="l">Obras activas</div></div>
+<div class="kpi ${riesgo?'warn':''}"><div class="n mono">${riesgo}</div><div class="l">Requieren atención</div></div>
+<div class="kpi"><div class="n mono">2</div><div class="l">Entregas en los próximos 45 días</div></div>
+<div class="kpi"><div class="n mono">${OBRAS.reduce((a,o)=>a+o.fotos,0)}</div><div class="l">Fotos recibidas esta semana</div></div>`;
+
+let sel='o3';
+function renderList(){
+  const L=document.getElementById('list');
+  L.innerHTML=OBRAS.map(o=>`<button class="obra" data-id="${o.id}" aria-current="${o.id===sel}">
+    <span class="stripe" style="background:${COL[o.estado]}"></span>
+    <span style="min-width:0">
+      <span class="name">${esc(o.nombre)}</span>
+      <span class="sub" style="display:block">${esc(STAGES[o.etapa])} · ${esc(o.residente)}</span>
+      <span class="bar"><i style="width:${pct(o)}%"></i></span>
+    </span>
+    <span style="display:flex;flex-direction:column;align-items:flex-end;gap:6px">
+      <span class="pill ${o.estado}">${LAB[o.estado]}</span>
+      <span class="pct">${pct(o)}%</span>
+    </span></button>`).join('');
+  L.querySelectorAll('.obra').forEach(b=>b.addEventListener('click',()=>{sel=b.dataset.id;renderList();renderDetail();}));
+}
+function renderDetail(){
+  const o=OBRAS.find(x=>x.id===sel);
+  const D=document.getElementById('detail');
+  const resumen = o.estado==='bad' ? `Pedir reporte a ${o.residente} hoy y llamar al proveedor del calentador. Si no hay fecha el viernes, la entrega del ${o.entrega} está en riesgo.`
+    : o.estado==='warn' ? `El retraso del acero ya se absorbió en el programa. Confirma hoy la pipa de concreto para el lunes 27 y avisa al cliente con el mensaje ya redactado.`
+    : `Va en tiempo. Siguiente hito: ${STAGES[Math.min(o.etapa+1,9)].toLowerCase()}. No requiere visita esta semana.`;
+  D.innerHTML=`<div style="display:flex;justify-content:space-between;gap:10px;align-items:start;flex-wrap:wrap">
+      <div><h3>${esc(o.nombre)}</h3><div class="muted" style="font-size:14px">${esc(o.tipo)}</div></div>
+      <span class="pill ${o.estado}">${LAB[o.estado]}</span></div>
+    ${o.alerta?`<div class="alert ${o.alerta.k==='warn'?'warn':''}">${esc(o.alerta.t)}</div>`:''}
+    <dl class="meta">
+      <div><dt>Cliente</dt><dd>${esc(o.cliente)}</dd></div>
+      <div><dt>Residente</dt><dd>${esc(o.residente)}</dd></div>
+      <div><dt>Inicio → entrega</dt><dd class="mono">${o.inicio} → ${o.entrega}</dd></div>
+      <div><dt>Último reporte</dt><dd>${esc(o.ultima)} · ${o.fotos} fotos</dd></div>
+    </dl>
+    <div class="bar" style="height:8px"><i style="width:${pct(o)}%"></i></div>
+    <div class="sub-h">Etapas · ${pct(o)}% de avance</div>
+    <ol class="stages">${STAGES.map((s,i)=>`<li class="${i<o.etapa?'done':i===o.etapa?'cur':'next'}"><span class="dot">${i<o.etapa?'✓':''}</span>${esc(s)}</li>`).join('')}</ol>
+    <div class="sub-h">Bitácora</div>
+    <ul class="log">${o.log.map(l=>`<li><span class="when">${esc(l.w)}</span><span><span class="src">${esc(l.s)}</span><br>${esc(l.t)}</span></li>`).join('')}</ul>
+    <div class="sub-h">Pendientes y materiales</div>
+    <div class="pend">${o.pend.map(p=>`<span>${esc(p)}</span>`).join('')}</div>
+    <div class="ai-box"><b>Resumen de Claude:</b> ${esc(resumen)}</div>`;
+}
+renderList();renderDetail();
+
+// Vista cliente
+const pick=document.getElementById('pick');
+pick.innerHTML=OBRAS.map(o=>`<option value="${o.id}">${esc(o.cliente)} — ${esc(o.nombre)}</option>`).join('');
+pick.value='o1';
+function renderPhone(){
+  const o=OBRAS.find(x=>x.id===pick.value);const p=pct(o);const C=2*Math.PI*30;
+  const tiles=['var(--t4)','var(--t1)','var(--t2)'];
+  const lastStage=STAGES[o.etapa];
+  document.getElementById('phone').innerHTML=`
+   <div class="ph-top">
+     <div class="brand">Pámanes Pools</div>
+     <div class="hi">Hola, ${esc(o.cliente)}</div>
+     <div class="big">Tu alberca va en: ${esc(lastStage)}</div>
+     <div class="ring">
+       <svg width="72" height="72" viewBox="0 0 72 72" aria-label="${p}% de avance"><circle cx="36" cy="36" r="30" fill="none" stroke="currentColor" stroke-opacity=".2" stroke-width="7"/><circle cx="36" cy="36" r="30" fill="none" stroke="var(--t3)" stroke-width="7" stroke-linecap="round" stroke-dasharray="${C}" stroke-dashoffset="${C*(1-p/100)}" transform="rotate(-90 36 36)"/><text x="36" y="41" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="15" fill="currentColor">${p}%</text></svg>
+       <div style="font-size:13.5px">Entrega estimada<br><b style="font-size:17px">${o.entrega}</b></div>
+     </div>
+   </div>
+   <div class="ph-body">
+     <div class="ph-card"><div class="eyebrow" style="font-size:10.5px">Mensaje de tu residente</div><div style="margin-top:4px">“${esc(o.msg)}”</div><div class="muted" style="font-size:12px;margin-top:4px">${esc(o.residente)} · ${esc(o.ultima)}</div></div>
+     <div class="ph-card"><div class="eyebrow" style="font-size:10.5px;margin-bottom:6px">Fotos recientes</div>
+       <div class="gal">${[0,1,2].map(i=>`<div style="background:linear-gradient(135deg,${tiles[i]},var(--t3))">Foto ${i+1}</div>`).join('')}</div></div>
+     <div class="ph-card"><div class="eyebrow" style="font-size:10.5px;margin-bottom:8px">Etapas de tu obra</div>
+       <ol class="tl">${STAGES.map((s,i)=>`<li class="${i<o.etapa?'done':i===o.etapa?'cur':'next'}"><span class="d"></span><span>${esc(s)}${i===o.etapa?'<span class="here">Aquí vamos</span>':''}</span></li>`).join('')}</ol></div>
+   </div>`;
+}
+pick.addEventListener('change',renderPhone);renderPhone();
+
+// Tabs
+const tO=document.getElementById('tab-owner'),tC=document.getElementById('tab-client');
+function tab(c){tO.setAttribute('aria-selected',!c);tC.setAttribute('aria-selected',c);document.getElementById('view-owner').hidden=c;document.getElementById('view-client').hidden=!c;}
+tO.addEventListener('click',()=>tab(false));tC.addEventListener('click',()=>tab(true));
+
+// Calculadora
+const $=id=>document.getElementById(id);
+function calc(){
+  const L=+$('c-l').value||0,W=+$('c-w').value||0,d1=+$('c-d1').value||0,d2=+$('c-d2').value||0,t=+$('c-t').value,j=+$('c-j').value;
+  const vol=L*W*((d1+d2)/2)+j; const m3h=vol/t;
+  const f=(n,d)=>n.toLocaleString('es-MX',{maximumFractionDigits:d,minimumFractionDigits:d});
+  $('o-vol').textContent=f(vol,1);$('o-lts').textContent=f(vol*1000,0);$('o-m3h').textContent=f(m3h,1);$('o-gpm').textContent=f(m3h*4.403,0);
+}
+['c-l','c-w','c-d1','c-d2','c-t','c-j'].forEach(id=>$(id).addEventListener('input',calc));calc();
+
+// Casos de uso
+const USES=[
+ {a:'Ventas',h:'Cotizaciones desde el plano del arquitecto',p:'Subes el plano o una foto del terreno y Claude arma la propuesta con medidas, volumen, equipo y acabados en tu formato.',e:'“Arma la cotización de una infinita de 10×4 con jacuzzi y mosaico veneciano para el Arq. Vargas.”'},
+ {a:'Ventas',h:'Respuesta a prospectos en minutos',p:'Redacta respuestas para WhatsApp e Instagram con tu tono de marca y las preguntas clave para precalificar al cliente.',e:'“Contesta a este prospecto que pregunta cuánto cuesta una alberca chica.”'},
+ {a:'Obra',h:'Bitácora a partir de notas de voz',p:'El residente manda audio o fotos; Claude lo ordena por obra y etapa y detecta retrasos o faltantes.',e:'“Resume los reportes de esta semana y dime qué obra necesita visita.”'},
+ {a:'Obra',h:'Programas de obra y compras',p:'Genera el calendario por etapas y la lista de materiales por obra para pedir a tiempo a proveedores.',e:'“Haz la lista de materiales y fechas de pedido para Las Villas.”'},
+ {a:'Clientes',h:'Manual de uso y mantenimiento',p:'Un manual personalizado por alberca: equipo instalado, rutina de químicos, uso de la automatización y garantías.',e:'“Crea el manual de entrega para la Quinta El Fresno con su equipo.”'},
+ {a:'Clientes',h:'Contratos, garantías y anexos',p:'Borradores de contrato, alcances, anexos técnicos y cartas de garantía con tus cláusulas habituales, listos para revisión legal.',e:'“Redacta el anexo de alcances para esta cotización aprobada.”'},
+ {a:'Dirección',h:'Rentabilidad por obra',p:'Cruza lo cotizado contra lo gastado en Excel y te dice dónde se fue el margen y qué partidas revisar.',e:'“Compara costo real vs. cotizado de las 5 últimas obras.”'},
+ {a:'Marketing',h:'Contenido para Instagram y Facebook',p:'Textos, ideas de reels y casos de éxito a partir de las fotos de tus obras terminadas, con el estilo de lujo de la marca.',e:'“Escribe 5 publicaciones de la entrega en Los Viñedos.”'},
+ {a:'Mantenimiento',h:'Servicio postventa recurrente',p:'Agenda de visitas, recordatorios a clientes y propuestas de póliza de mantenimiento para clientes que ya entregaste.',e:'“Arma una póliza mensual de mantenimiento con 3 niveles.”'}
+];
+document.getElementById('uses').innerHTML=USES.map(u=>`<div class="use"><div class="area">${u.a}</div><h3>${esc(u.h)}</h3><p>${esc(u.p)}</p><div class="ex">${esc(u.e)}</div></div>`).join('');
+
+// Copiar
+document.querySelectorAll('[data-copy]').forEach(b=>b.addEventListener('click',()=>{
+  const el=document.getElementById(b.dataset.copy);
+  const done=()=>{b.textContent='Copiado';setTimeout(()=>b.textContent='Copiar',1500)};
+  const sel=()=>{const r=document.createRange();r.selectNodeContents(el);const s=getSelection();s.removeAllRanges();s.addRange(r);};
+  try{navigator.clipboard.writeText(el.textContent).then(done,sel)}catch(e){sel()}
+}));
+})();
+</script>
+
+</body></html>
